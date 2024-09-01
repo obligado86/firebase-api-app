@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "portfolio-prooject"
+  },
+  "targets": {},
+  "etags": {
+    "portfolio-prooject": {
+      "extensionInstances": {}
+    }
+  },
+  "dataconnectEmulatorConfig": {}
+}

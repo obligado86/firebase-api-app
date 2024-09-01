@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Firebase Project</title>
+
+    <link rel="stylesheet" href="./css/style.css"/>
+  </head>
+  <body>
+
+    <!-- new request modal -->
+    <div class="modal" id="modal-request">
+      <div class="modal-body">
+        <h2>Request a Tutorial</h2>
+        <form>
+          <input type="text" name="request" placeholder="Request...">
+          <button>Submit Request</button>
+          <p class="error"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- login modal -->
+    <div class="modal" id="modal-login">
+      <div class="modal-body">
+        <h2>Login User</h2>
+        <form id="login-form">
+          <div class="input-field">
+            <input type="email" id="login-email" required />
+            <label for="login-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="login-password" required />
+            <label for="login-password">Your password</label>
+          </div>
+          <button>Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- signup modal -->
+    <div class="modal" id="modal-signup">
+      <div class="modal-body">
+        <h2>Signup New Account</h2>
+        <form id="signup-form">
+          <div class="input-field">
+            <input type="email" id="signup-email" required />
+            <label for="signup-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="signup-password" required />
+            <label for="signup-password">Choose password</label>
+          </div>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+    </div>
+
+    <header>
+      <nav>
+        <a href="#" class="sign-in-link">Login</a>
+        <a href="#" class="sign-up-link">Sign up</a>
+        <a class="add-request">add request</a>
+        <a class="sign-out-link" id="logout">logout</a>
+      </nav>
+    </header>
+
+    <section class="content">
+      <h1>Tutorial Requests</h1>
+      <ul class="request-list"> 
+        <li>
+          <span class="text">Laravel 6 tutorial</span>
+          <div>
+            <span class="votes">125</span>
+            <Span>⬆️</Span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- update the version number as needed -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    
+    <!-- include only the Firebase features as you need -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-functions.js"></script>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBM1pHDKXCLKvVt4ZKWa_53fAZPazi4Qeo",
+        authDomain: "portfolio-prooject.firebaseapp.com",
+        projectId: "portfolio-prooject",
+        databaseURL: "https://portfolio-prooject.firebaseio.com",
+        messagingSenderId: "90913474592",
+        appId: "1:90913474592:web:e4bcffb70842dda1cd9445",
+        measurementId: "G-G6VX7ZX8D8"
+      };
+    
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+
+      // update firestore settings
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <!-- 
+      initialize the SDK after all desired features are loaded.
+    -->
+    <script defer src="./init-firebase.js"></script>
+    <script defer src="./js/auth.js"></script>
+    <script defer src="./js/global.js"></script>
+  </body>
+</html>
